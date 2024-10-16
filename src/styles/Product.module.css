@@ -26,11 +26,11 @@
   border-radius: 6px;
 }
 
-/* .images-list {
+.images-list {
   display: flex;
   flex-direction: column;
   row-gap: 5px;
-} */
+}
 
 .imagesList {
   display: flex;

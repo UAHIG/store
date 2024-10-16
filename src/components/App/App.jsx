@@ -21,7 +21,7 @@ const App = () => {
       <Header />
       <div className='container'>
         <Sidebar />
-        <Home />
+        {/* <Home /> */}
         <AppRoutes />
       </div>
       <Footer />
