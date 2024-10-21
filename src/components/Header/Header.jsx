@@ -1,18 +1,41 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styles from "../../styles/Header.module.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { ROUTES } from "../../utils/routes"
 import LOGO from "../../images/logo.svg"
 import AVATAR from "../../images/avatar.jpg"
 import { useDispatch, useSelector } from "react-redux"
 import { toggleForm } from "../../features/user/userSlice"
+import { useState } from "react"
+import { useGetProductsQuery } from "../../features/api/apiSlice"
 
 const Header = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate
+
+  const [searchValue, setsearchValue] = useState("")
+
   const { currentUser } = useSelector(({ user }) => user)
+
   const handleClick = () => {
-    if (!currentUser) dispatch(toggleForm(true));
+    if (!currentUser) dispatch(toggleForm(true))
+    else navigate(ROUTES.PROFILE)
   }
+
+  const handleSearch = ({ target: { value } }) => {
+    setsearchValue(value)
+  }
+
+  const [values, setValues] = useState({ name: "Guest", avatar: AVATAR })
+
+  const { data, isLoading, } = useGetProductsQuery({ title: searchValue })
+  useEffect(() => {
+  }, [searchValue]);
+
+  useEffect(() => {
+    if (!currentUser) return
+    setValues(currentUser)
+  }, [currentUser])
 
   return (
     <div className={styles.header}>
@@ -25,9 +48,9 @@ const Header = () => {
         <div className={styles.user} onClick={handleClick}>
           <div
             className={styles.avatar}
-            style={{ backgroundImage: `url(${AVATAR})` }}
+            style={{ backgroundImage: `url(${values.avatar})` }}
           />
-          <div className={styles.username}>Guest</div>
+          <div className={styles.username}>{values.name}</div>
         </div>
 
         <form className={styles.form}>
@@ -42,12 +65,55 @@ const Header = () => {
               name='search'
               placeholder='Search for anything..'
               autoComplete='off'
-              onChange={() => {}}
-              value=''
+              onChange={handleSearch}
+              value={searchValue}
             />
           </div>
 
-          {false && <div className={styles.box}></div>}
+          {/* {searchValue && (
+            <div className={styles.box}>
+              {isLoading
+                ? "Loading"
+                : !data.length
+                ? "No results"
+                : data.map(({ title, images, id }) => {
+                    return (
+                      <Link className={styles.item} to={`/products/${id}`}>
+                        <div
+                          className={styles.image}
+                          style={{
+                            backgroundImage: `url(${images[0]})`,
+                          }}></div>
+                        <div className={styles.title}>{title}</div>
+                      </Link>
+                    )
+                  })}
+            </div>
+          )} */}
+
+          {searchValue && (
+            <div className={styles.box}>
+              {isLoading
+                ? "Loading"
+                : !data || data.length === 0
+                ? "No results"
+                : data.map(({ title, images, id }) => {
+                    return (
+                      <Link
+                        className={styles.item}
+                        to={`/products/${id}`}
+                        key={id}>
+                        <div
+                          className={styles.image}
+                          style={{
+                            backgroundImage: `url(${images[0]})`,
+                          }}></div>
+                        <div className={styles.title}>{title}</div>
+                      </Link>
+                    )
+                  })}
+            </div>
+          )}
         </form>
         <div className={styles.account}>
           <Link to={ROUTES.HOME} className={styles.favourites}>

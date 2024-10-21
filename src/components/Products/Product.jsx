@@ -36,6 +36,7 @@ const Product = (item) => {
         <div className={styles["images-list"]}>
           {images.map((image, i) => (
             <div
+              key={i}
               className={styles.image}
               style={{ backgroundImage: `url(${image})` }}
               onClick={() => setCurrentImage(image)}
