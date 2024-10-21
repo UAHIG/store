@@ -78,7 +78,8 @@ const Header = () => {
                 ? "No results"
                 : data.map(({ title, images, id }) => {
                     return (
-                      <Link className={styles.item} to={`/products/${id}`}>
+                      <Link                         onClick={() => searchValue("")}
+ className={styles.item} to={`/products/${id}`}>
                         <div
                           className={styles.image}
                           style={{
@@ -100,6 +101,7 @@ const Header = () => {
                 : data.map(({ title, images, id }) => {
                     return (
                       <Link
+                        onClick={() => setsearchValue("")}
                         className={styles.item}
                         to={`/products/${id}`}
                         key={id}>
