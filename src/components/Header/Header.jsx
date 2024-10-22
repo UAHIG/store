@@ -15,7 +15,7 @@ const Header = () => {
 
   const [searchValue, setsearchValue] = useState("")
 
-  const { currentUser } = useSelector(({ user }) => user)
+  const { currentUser, cart } = useSelector(({ user }) => user)
 
   const handleClick = () => {
     if (!currentUser) dispatch(toggleForm(true))
@@ -28,9 +28,8 @@ const Header = () => {
 
   const [values, setValues] = useState({ name: "Guest", avatar: AVATAR })
 
-  const { data, isLoading, } = useGetProductsQuery({ title: searchValue })
-  useEffect(() => {
-  }, [searchValue]);
+  const { data, isLoading } = useGetProductsQuery({ title: searchValue })
+  useEffect(() => {}, [searchValue])
 
   useEffect(() => {
     if (!currentUser) return
@@ -69,29 +68,6 @@ const Header = () => {
               value={searchValue}
             />
           </div>
-
-          {/* {searchValue && (
-            <div className={styles.box}>
-              {isLoading
-                ? "Loading"
-                : !data.length
-                ? "No results"
-                : data.map(({ title, images, id }) => {
-                    return (
-                      <Link                         onClick={() => searchValue("")}
- className={styles.item} to={`/products/${id}`}>
-                        <div
-                          className={styles.image}
-                          style={{
-                            backgroundImage: `url(${images[0]})`,
-                          }}></div>
-                        <div className={styles.title}>{title}</div>
-                      </Link>
-                    )
-                  })}
-            </div>
-          )} */}
-
           {searchValue && (
             <div className={styles.box}>
               {isLoading
@@ -128,7 +104,7 @@ const Header = () => {
             <svg className={styles["icon-cart"]}>
               <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`} />
             </svg>
-            <span className={styles.count}>2</span>
+            {!!cart.length && <span className={styles.count}>{cart.length}</span>}
           </Link>
         </div>
       </div>
