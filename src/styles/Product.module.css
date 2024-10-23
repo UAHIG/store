@@ -136,3 +136,9 @@
   cursor: not-allowed;
   background: var(--bg);
 }
+
+.purchase {
+  margin: 20px 20px 20px 0px;
+}
+
+

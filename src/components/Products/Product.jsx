@@ -1,4 +1,4 @@
-import React, { useEffect, useState, } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { ROUTES } from "../../utils/routes"
@@ -9,15 +9,14 @@ import { addItemToCart } from "../../features/user/userSlice"
 const SIZES = [4, 4.5, 5]
 
 const Product = (item) => {
-  const { title, images, price, description } = item;
-  const dispatch = useDispatch();
+  const { title, images, price, description } = item
+  const dispatch = useDispatch()
 
   const [currentImage, setCurrentImage] = useState()
   const [currentSize, setCurrentSize] = useState()
 
-
   useEffect(() => {
-    if(!images.length) return;
+    if (!images.length) return
 
     setCurrentImage(images[0])
   }, [images])
@@ -56,7 +55,9 @@ const Product = (item) => {
             {SIZES.map((size) => (
               <div
                 onClick={() => setCurrentSize(size)}
-                className={`${styles.size} ${currentSize === size ? styles.active : ""}`}
+                className={`${styles.size} ${
+                  currentSize === size ? styles.active : ""
+                }`}
                 key={size}>
                 {size}
               </div>
@@ -65,11 +66,19 @@ const Product = (item) => {
         </div>
         <p className={styles.description}>{description}</p>
         <div className={styles.actions}>
-          <button onClick={addToCart} className={styles.add} disabled={!currentSize}>Add to cart</button>
+          <button
+            onClick={addToCart}
+            className={styles.add}
+            disabled={!currentSize}>
+            Add to cart
+          </button>
           <button className={styles.favourite}>Add to favourites</button>
         </div>
         <div className={styles.purchase}>19 people purchased</div>
-        <Link to={ROUTES.HOME}>Return to store</Link>
+        <Link className={styles.link} to={ROUTES.HOME}>
+        <button>Return to store</button>
+        
+        </Link>
       </div>
     </section>
   )
