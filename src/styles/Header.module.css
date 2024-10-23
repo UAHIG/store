@@ -3,10 +3,14 @@
   display: flex;
   align-items: center;
   padding: 25px 20px;
+  position: sticky;
+  top: 0;
+  background-color: var(--bg); 
+  z-index: 100;
 }
 
 .logo {
-  width: 304px;
+  width: 100px;
 }
 
 .info {
@@ -168,4 +172,29 @@
   width: 50px;
 }
 
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+  }
 
+  .info {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .user {
+    order: 1;
+    margin-bottom: 10px;
+    flex-basis: 50%;
+  }
+
+  .form {
+    width: 280px;
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .account {
+    order: 2;
+  }
+}

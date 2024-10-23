@@ -1,3 +1,4 @@
+
 body {
   background: var(--bg);
   font-size: 16px;
@@ -56,8 +57,10 @@ li {
 }
 
 .app {
-  width: 1274px;
+  width: 100%;
+  /* width: 1274px; */
   margin: 0 auto;
+  position: relative; /* Устанавливаем контекст для sticky */
 }
 
 .flex {
