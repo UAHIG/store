@@ -1,12 +1,17 @@
 .section {
   width: 100%;
   padding: 22px;
+  overflow-y: auto;
+  position: relative; /* Устанавливаем контекст для sticky */
+  display: flex;
+  flex-direction: column;
 }
 
 .list {
   margin-top: 24px;
   display: flex;
   column-gap: 20px;
+  justify-content: center;
 }
 
 .item {
@@ -23,10 +28,24 @@
   background-size: cover;
 }
 
-.title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  margin-top: 20px;
+
+h2 {
+  position: sticky; /* Делаем заголовок фиксированным */
+  top: 0; /* Фиксируем заголовок у верхней границы секции */
+  background-color: var(--dark);
+  z-index: 2; /* Устанавливаем приоритет отображения */
+  padding: 10px;
 }
 
+@media (max-width: 600px) {
+  .item {
+    width: 70%;
+  }
+  .list {
+    flex-wrap: wrap;
+    max-height: 240px;
+  }
+  .section {
+    padding-top: 0px;
+  }
+}
