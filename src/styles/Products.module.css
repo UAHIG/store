@@ -1,6 +1,8 @@
 .products {
   width: 100%;
   padding: 25px 22px;
+  display: flex;
+  flex-direction: column;
 }
 
 .list {
@@ -90,4 +92,13 @@
 .button {
   margin-top: 24px;
   text-align: center;
+}
+
+@media (max-width: 600px) {
+  .product {
+    width: 100%;
+  }
+  .product:nth-child(5n) {
+    width: 100%;
+  }
 }
