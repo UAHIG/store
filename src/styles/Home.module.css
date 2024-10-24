@@ -108,18 +108,18 @@
 .right {
   width: 50%;
   position: relative;
+  background-size: contain;
 }
 
 .discount {
   font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 34px;
+  line-height: 40px;
   text-align: center;
   color: var(--bg);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 24px;
 }
 
 .discount span {
@@ -128,6 +128,9 @@
 }
 
 @media (max-width: 1300px) {
+  .banner {
+    height: 40vw;
+  }
   .title {
     font-size: 60px;
   }
@@ -136,6 +139,26 @@
   }
   .head {
     font-size: 25px;
+  }
+  .content {
+    font-size: 30px;
+    line-height: 80px;
+  }
+  .content span {
+    font-size: 60px;
+    line-height: 80px;
+  }
+  .discount {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .left:before {
+    width: 15vw;
+  }
+
+  .left:after {
+    width: 15vw;
   }
 }
 
@@ -153,5 +176,24 @@
   .image {
     width: 100%;
     height: 150px;
+  }
+  .discount {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .content {
+    font-size: 15px;
+    line-height: 40px;
+  }
+  .content span {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .left:before {
+    width: 15vw;
+    left: 0px;
+    bottom: -23px;
   }
 }
