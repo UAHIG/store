@@ -1,4 +1,3 @@
-
 .sidebar {
   width: 304px;
   padding: 0px 24px 24px 24px;
@@ -14,7 +13,7 @@
   line-height: 20px;
   position: sticky; /* Делаем заголовок фиксированным */
   top: 0; /* Фиксируем заголовок у верхней границы секции */
-  background-color: var(--dark); 
+  background-color: var(--dark);
   z-index: 1; /* Устанавливаем приоритет отображения */
   padding: 10px 0; /* Добавляем отступы */
 }
@@ -51,9 +50,15 @@
   margin-top: 15px;
 }
 
-/* @media (max-width: 1250px) {
-.sidebar {
-  width: 100%;
+@media (max-width: 850px) {
+  .sidebar {
+    width: 100%;
+  }
 }
-  
-} */
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+    height: 250px;
+  }
+}
