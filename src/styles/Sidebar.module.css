@@ -5,6 +5,7 @@
   flex-direction: column;
   overflow-y: auto;
   position: relative; /* Устанавливаем контекст для sticky */
+  max-height: 400px;
 }
 
 .title {
