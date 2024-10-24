@@ -1,7 +1,6 @@
 .sidebar {
   width: 304px;
   padding: 0px 24px 24px 24px;
-  height: 423px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;

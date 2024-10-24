@@ -105,6 +105,7 @@
   font-size: 12px;
   line-height: 15px;
   color: var(--grey);
+  max-width: 500px;
 }
 
 .actions {
@@ -141,4 +142,24 @@
   margin: 20px 20px 20px 0px;
 }
 
+@media (max-width: 1200px) {
+  .product {
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+}
 
+@media (max-width: 600px) {
+  .images {
+    flex-direction: column;
+  }
+  .images-list {
+    flex-direction: row;
+    max-width: 375px;
+    overflow: scroll;
+    column-gap: 5px;
+  }
+  .current {
+    width: 70vw;
+  }
+}

@@ -57,7 +57,7 @@ li {
 }
 
 .app {
-  width: 100%;
+  max-width: 100%;
   /* width: 1274px; */
   margin: 0 auto;
   position: relative; /* Устанавливаем контекст для sticky */
