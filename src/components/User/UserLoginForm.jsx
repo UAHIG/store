@@ -4,8 +4,8 @@ import styles from "../../styles/User.module.css"
 import { useDispatch } from "react-redux"
 import { loginUser } from "../../features/user/userSlice"
 
-const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
-  const dispatch = useDispatch();
+const UserLoginForm = ({ closeForm, toggleCurrentFormType }) => {
+  const dispatch = useDispatch()
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -16,14 +16,14 @@ const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const isNotEmpty = Object.values(values).every(( val ) => val);
+    const isNotEmpty = Object.values(values).every(val => val)
 
-    if(isNotEmpty) return;
+    if (!isNotEmpty) return
 
-    dispatch(loginUser(values));
-    closeForm();
+    dispatch(loginUser(values))
+    closeForm()
   }
 
   return (
@@ -61,7 +61,11 @@ const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
           />
         </div>
 
-        <div className={styles.link} onClick={() => toggleCurrentFormType("signup")}>Create an account</div>
+        <div
+          className={styles.link}
+          onClick={() => toggleCurrentFormType("signup")}>
+          Create an account
+        </div>
         <button type='submit' className={styles.submit}>
           Log in
         </button>
@@ -70,4 +74,4 @@ const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
   )
 }
 
-export default UserLoginForm;
+export default UserLoginForm

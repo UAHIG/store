@@ -29,11 +29,11 @@ const Profile = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const isNotEmpty = Object.values(values).every((val) => val)
+    const isNotEmpty = Object.values(values).every(val => val)
 
-    if (isNotEmpty) return
+    if (!isNotEmpty) return
 
-    dispatch(updateUser(values))
+    dispatch(updateUser(values));
   }
 
   return (

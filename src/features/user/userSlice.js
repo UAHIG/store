@@ -10,7 +10,7 @@ export const createUser = createAsyncThunk(
       return res.data
     } catch (err) {
       console.log(err)
-      return thunkAPI.fulfillWithValue(err)
+      return thunkAPI.rejectWithValue(err)
     }
   }
 )
@@ -38,10 +38,10 @@ export const updateUser = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const res = await axios.put(`${BASE_URL}/users/${payload.id}`, payload)
-      return res.data
+      return res.data;
     } catch (err) {
-      console.log(err)
-      return thunkAPI.fulfillWithValue(err)
+      console.log(err);
+      return thunkAPI.rejectWithValue(err)
     }
   }
 )
