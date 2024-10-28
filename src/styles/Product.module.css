@@ -120,7 +120,11 @@
 }
 
 .favourite:hover {
-  background: #7a8690;
+  background: var(--violet-dark);
+}
+
+.favourite:active {
+  background: var(--dark-sea);
 }
 
 .bottom {

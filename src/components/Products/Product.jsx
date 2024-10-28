@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { ROUTES } from "../../utils/routes"
 
 import styles from "../../styles/Product.module.css"
-import { addItemToCart } from "../../features/user/userSlice"
+import { addItemToCart, addItemToFavorites } from "../../features/user/userSlice"
 
 const SIZES = [4, 4.5, 5]
 
@@ -23,6 +23,10 @@ const Product = (item) => {
 
   const addToCart = () => {
     dispatch(addItemToCart(item))
+  }
+
+  const addToFavorites = () => {
+    dispatch(addItemToFavorites(item))
   }
 
   return (
@@ -72,7 +76,7 @@ const Product = (item) => {
             disabled={!currentSize}>
             Add to cart
           </button>
-          <button className={styles.favourite}>Add to favourites</button>
+          <button onClick={addToFavorites} className={styles.favourite}>Add to favourites</button>
         </div>
         <div className={styles.purchase}>19 people purchased</div>
         <Link className={styles.link} to={ROUTES.HOME}>
