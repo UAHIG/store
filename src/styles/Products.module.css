@@ -102,3 +102,9 @@
     width: 100%;
   }
 }
+
+@media (max-width: 1050px) {
+  .info {
+    flex-direction: column;
+  }
+}
