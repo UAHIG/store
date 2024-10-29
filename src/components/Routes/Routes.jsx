@@ -11,7 +11,8 @@ import Favorites from "../Favorites/Favorites";
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route index element={<Home />} />
+       <Route path={ROUTES.HOME} element={<Home />} />
+      {/* <Route index element={<Home/>} /> */}
       <Route path={ROUTES.PRODUCTS} element={<SingleProduct/>}></Route>
       <Route path={ROUTES.PROFILE} element={<Profile/>}></Route>
       <Route path={ROUTES.CATEGORY} element={<SingleCategory/>}></Route>
@@ -22,3 +23,6 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes
+
+
+

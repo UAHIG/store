@@ -10,7 +10,7 @@ import { store } from "./features/store"
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-  <BrowserRouter>
+  <BrowserRouter basename="/store">
     <App />
   </BrowserRouter>
   </Provider>
