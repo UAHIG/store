@@ -57,10 +57,11 @@ li {
 }
 
 .app {
-  max-width: 100%;
-  /* width: 1274px; */
+  max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
-  position: relative; /* Устанавливаем контекст для sticky */
+  padding: 0 16px; 
+  position: relative;
 }
 
 .flex {
