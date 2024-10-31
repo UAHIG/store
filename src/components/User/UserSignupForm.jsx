@@ -20,11 +20,19 @@ const UserSignupForm = ({ closeForm, toggleCurrentFormType }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const isNotEmpty = Object.values(values).every((val) => val)
+    const defaultAvatar = "https://cs14.pikabu.ru/post_img/2023/02/13/8/1676295806139337963.jpg";
+   
+    const userData = {
+      ...values,
+      avatar: values.avatar || defaultAvatar, // используем значение по умолчанию, если поле пустое
+    };
+  
+    const isNotEmpty = userData.name && userData.email && userData.password;
+    // const isNotEmpty = Object.values(values).every((val) => val)
 
     if (!isNotEmpty) return
 
-    dispatch(createUser(values))
+    dispatch(createUser(userData))
     closeForm()
   }
 
@@ -78,12 +86,11 @@ const UserSignupForm = ({ closeForm, toggleCurrentFormType }) => {
         <div className={styles.group}>
           <input
             type='avatar'
-            placeholder='Your avatar'
+            placeholder='Avatar link'
             name='avatar'
             value={values.avatar}
             autoComplete='off'
             onChange={handleChange}
-            required
           />
         </div>
 
