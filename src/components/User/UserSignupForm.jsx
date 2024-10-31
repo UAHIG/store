@@ -91,6 +91,7 @@ const UserSignupForm = ({ closeForm, toggleCurrentFormType }) => {
             value={values.avatar}
             autoComplete='off'
             onChange={handleChange}
+            title="You can enter a link to your avatar, if you want"
           />
         </div>
 
