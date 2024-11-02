@@ -8,6 +8,16 @@
   z-index: 98;
 }
 
+.overlayAi {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 33, 35, 0.8);
+  z-index: 102;
+}
+
 .wrapper {
   position: fixed;
   top: 0;
@@ -18,6 +28,20 @@
   z-index: 100;
   padding: 24px;
 }
+
+
+.wrapperAi {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--dark);
+  height: 80vh;
+  width: 50vw;
+  z-index: 103;
+  padding: 24px;
+}
+
 
 .title {
   font-weight: 400;

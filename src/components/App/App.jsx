@@ -7,6 +7,7 @@ import { useEffect } from "react"
 import { getCategories } from "../../features/categories/categoriesSlice"
 import { getProducts } from "../../features/prodducts/productSlice"
 import UserForm from "../User/UserForm"
+import PosterActivity from "../PoserActivity/PosterActivity"
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const App = () => {
     <div className='app'>
       <Header />
       <UserForm />
+      <PosterActivity />
       <div className='container'>
         <Sidebar />
         <AppRoutes />

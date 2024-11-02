@@ -59,6 +59,7 @@ const userSlice = createSlice({
     isLoading: false,
     formType: "signup",
     showForm: false,
+    showPosterActivity: false,
   },
   reducers: {
     addItemToCart: (state, { payload }) => {
@@ -102,6 +103,11 @@ const userSlice = createSlice({
     toggleForm: (state, { payload }) => {
       state.showForm = payload
     },
+
+    togglePosterActivity: (state, {payload}) => {
+      state.showPosterActivity = payload
+    },
+
     toggleFormType: (state, { payload }) => {
       state.formType = payload
     },
@@ -117,6 +123,7 @@ export const {
   addItemToCart,
   toggleForm,
   toggleFormType,
+  togglePosterActivity,
   removeItemFromCart,
   removeItemFromFavorites,
   addItemToFavorites,

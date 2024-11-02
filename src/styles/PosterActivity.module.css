@@ -1,0 +1,23 @@
+.typingEffect {
+  color: #00ff00; 
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 24px;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; 
+  white-space: pre-warp;
+  overflow: hidden;
+  border-right: 2px solid #00ff00;
+  animation: blink-caret 0.75s step-end infinite;
+  word-wrap: break-word; 
+  width: 100%;
+  animation: blink-caret 0.75s step-end infinite;
+  line-height: 120%;
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #00ff00;
+  }
+}
